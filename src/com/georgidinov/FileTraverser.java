@@ -40,12 +40,16 @@ public class FileTraverser extends SimpleFileVisitor<Path> {
 
     @Override
     public FileVisitResult visitFile(Path file, BasicFileAttributes attrs) throws IOException {
+        String fileName = file.getFileName().toString();
+        long fileSize = attrs.size();
 
-        FileSearchingStrategyFactory fileReaderFactory = new FileSearchingStrategyFactory();
-        FileSearchingStrategy reader = fileReaderFactory.getFileSearchingStrategy(file.getFileName().toString());
-        if (reader.readFile(file, this.wordToSearchFor)) {
-//            System.out.println("Successfully found keyword in " + file.getFileName() + " with size " + attrs.size());
-            this.objectHolderList.addNewObjectHolder(new FileInfoHolder(file.getFileName().toString(), attrs.size()));
+        FileSearchingStrategy reader = FileSearchingStrategyFactory.getFileSearchingStrategy(fileName);
+        if (reader != null) {
+            if (reader.readFile(file, this.wordToSearchFor)) {
+                this.objectHolderList.addNewObjectHolder(new FileInfoHolder(fileName, fileSize));
+            }
+        } else {
+            System.out.println("File format not supported!");
         }
         return FileVisitResult.CONTINUE;
     }//end of method visitFile
@@ -54,7 +58,7 @@ public class FileTraverser extends SimpleFileVisitor<Path> {
         List<ObjectHolder> foundFiles = this.objectHolderList.getObjectHolderList();
         foundFiles.sort(onFileSize);
         return foundFiles;
-    }
+    }//end of method listAllFilesWithMatches
 
 
 }//end fo class FileTraverser

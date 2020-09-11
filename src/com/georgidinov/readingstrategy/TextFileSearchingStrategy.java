@@ -10,21 +10,19 @@ public class TextFileSearchingStrategy implements FileSearchingStrategy {
 
 
     @Override
-    public boolean readFile(Path path, String wordToLookFor) {
+    public boolean readFile(Path path, String stringToLookFor) {
         try (Scanner fileReader = new Scanner(new BufferedReader(Files.newBufferedReader(path)))) {
             while (fileReader.hasNextLine()) {
                 String line = fileReader.nextLine();
-                if (line.contains(wordToLookFor)) {
-//                    System.out.println("The file contains the word " + wordToLookFor);
+                if (line.contains(stringToLookFor)) {
                     return true;
                 }
             }
         } catch (IOException e) {
-            System.out.println("Exception while reading file: " + e.getMessage());
+            System.out.println("Exception while reading text file: " + e.getMessage());
             return false;
         }
         return false;
     }
-
 
 }//end of class TextFileReadingStrategy

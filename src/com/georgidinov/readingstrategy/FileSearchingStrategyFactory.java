@@ -2,11 +2,13 @@ package com.georgidinov.readingstrategy;
 
 public class FileSearchingStrategyFactory {
 
-    public FileSearchingStrategy getFileSearchingStrategy(String type) {
-        if (type == null) {
+    public static FileSearchingStrategy getFileSearchingStrategy(String fileName) {
+        if (fileName == null) {
             return null;
-        } else if (type.endsWith(".txt")) {
+        } else if (fileName.endsWith(".txt")) {
             return new TextFileSearchingStrategy();
+        } else if (fileName.endsWith(".dat")) {
+            return new BinaryFileSearchingStrategy();
         }
         return null;
     }

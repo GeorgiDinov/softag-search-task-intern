@@ -6,24 +6,24 @@ import java.util.List;
 public class FileInfoHolderList implements ObjectHolderList {
 
     //== fields ==
-    private List<ObjectHolder> fileHolders;
+    private List<ObjectHolder> objectHolderList;
 
 
     //== constructors ==
     public FileInfoHolderList() {
-        this.fileHolders = new ArrayList<>();
+        this.objectHolderList = new ArrayList<>();
     }//end of constructor
 
 
     //== public methods ==
     @Override
     public void addNewObjectHolder(ObjectHolder objectHolder) {
-        this.fileHolders.add(objectHolder);
+        this.objectHolderList.add(objectHolder);
     }
 
     @Override
     public List<ObjectHolder> getObjectHolderList() {
-        return this.fileHolders;
+        return this.objectHolderList;
     }
 
 }//end of class FileInfoHolderList
