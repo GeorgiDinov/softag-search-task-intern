@@ -1,5 +1,5 @@
 Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-Curabitur eget ligula a diam mattis facilisis. Mauris blandit justo nec viverra vehicula.
+Curabitur eget ligula a diam mattis facilisis.
 Mauris lacinia, tortor non efficitur fringilla, diam justo tincidunt nibh, eu gravida arcu arcu a metus.
 Morbi imperdiet libero vel tellus sollicitudin euismod.
 Quisque auctor magna sit amet urna pellentesque, vitae venenatis mauris scelerisque.
