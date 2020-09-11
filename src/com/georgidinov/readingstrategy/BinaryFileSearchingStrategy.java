@@ -52,6 +52,7 @@ public class BinaryFileSearchingStrategy implements FileSearchingStrategy {
         Path path = FileSystems
                 .getDefault()
                 .getPath("TestFileTree" + File.separator + "Dir2" + File.separator + "Dir3" + File.separator + "file3.dat");
+
         try (DataOutputStream fileWriter = new DataOutputStream(new BufferedOutputStream(Files.newOutputStream(path)))) {
             for (String s : loremText) {
                 fileWriter.writeUTF(s + "\n");
@@ -59,6 +60,7 @@ public class BinaryFileSearchingStrategy implements FileSearchingStrategy {
         } catch (IOException e) {
             System.out.println("Exception while writing binary file \\'file3.dat\\': " + e.getMessage());
         }
+
     }//end of main method
 
 }//end of class BinaryFileSearchingStrategy

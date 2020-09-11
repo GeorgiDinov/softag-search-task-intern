@@ -21,13 +21,13 @@ public class FileTraverser extends SimpleFileVisitor<Path> {
     Comparator<ObjectHolder> onFileSize = Comparator.comparing(ObjectHolder::getFileSize);
 
     //== fields ==
-    private String wordToSearchFor;
+    private String stringToSearchFor;
     private ObjectHolderList objectHolderList;
 
     //== constructors ==
-    public FileTraverser(ObjectHolderList objectHolderList, String wordToSearchFor) {
+    public FileTraverser(ObjectHolderList objectHolderList, String stringToSearchFor) {
         this.objectHolderList = objectHolderList;
-        this.wordToSearchFor = Objects.requireNonNull(wordToSearchFor, "defaultWord");
+        this.stringToSearchFor = Objects.requireNonNull(stringToSearchFor, "defaultWord");
     }//end of constructor
 
 
@@ -45,7 +45,7 @@ public class FileTraverser extends SimpleFileVisitor<Path> {
 
         FileSearchingStrategy reader = FileSearchingStrategyFactory.getFileSearchingStrategy(fileName);
         if (reader != null) {
-            if (reader.readFile(file, this.wordToSearchFor)) {
+            if (reader.readFile(file, this.stringToSearchFor)) {
                 this.objectHolderList.addNewObjectHolder(new FileInfoHolder(fileName, fileSize));
             }
         } else {
