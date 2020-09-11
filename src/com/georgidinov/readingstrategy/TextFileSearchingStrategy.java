@@ -15,7 +15,7 @@ public class TextFileSearchingStrategy implements FileSearchingStrategy {
             while (fileReader.hasNextLine()) {
                 String line = fileReader.nextLine();
                 if (line.contains(wordToLookFor)) {
-                    System.out.println("The file contains the word " + wordToLookFor);
+//                    System.out.println("The file contains the word " + wordToLookFor);
                     return true;
                 }
             }
