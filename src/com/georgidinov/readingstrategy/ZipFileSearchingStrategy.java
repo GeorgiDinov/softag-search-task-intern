@@ -15,14 +15,17 @@ public class ZipFileSearchingStrategy implements FileSearchingStrategy {
         try (ZipInputStream zipInputStream = new ZipInputStream(new BufferedInputStream(Files.newInputStream(path)))) {
             ZipEntry entry;
             while ((entry = zipInputStream.getNextEntry()) != null) {
+                if (entry.isDirectory()) {
+                    continue;
+                }
                 String fileName = entry.getName();
                 long fileSize = entry.getSize();
                 System.out.println("File name in zip file = " + fileName + " size = " + fileSize);
                 FileSearchingStrategy reader = FileSearchingStrategyFactory.getFileSearchingStrategy(fileName);
                 if (reader != null) {
-                    return reader.readFile(path, stringToLookFor);
+                    reader.readFile(path, stringToLookFor);
                 } else {
-                    System.out.println("Not supported file format!");
+                    System.out.println("File format NOT Supported!");
                 }
             }
         } catch (IOException e) {
@@ -30,6 +33,5 @@ public class ZipFileSearchingStrategy implements FileSearchingStrategy {
         }
         return false;
     }
-
 
 }//end of class ZipFileSearchingStrategy
