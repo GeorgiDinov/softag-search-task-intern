@@ -1,7 +1,8 @@
 package com.georgidinov;
 
-import com.georgidinov.util.FileInfoHolderList;
-import com.georgidinov.util.ObjectHolder;
+import com.georgidinov.util.fileinfo.FileInfoHolderList;
+import com.georgidinov.util.fileinfo.ObjectHolder;
+import com.georgidinov.util.userinput.UserInputReader;
 
 import java.io.File;
 import java.io.IOException;
@@ -14,13 +15,19 @@ import java.util.List;
 public class Main {
 
     private static String SEPARATOR = File.separator;
+    private static UserInputReader userInputReader = new UserInputReader();
 
     public static void main(String[] args) {
+
+//        UserInput userInput = userInputReader.getUserInput();
+//        Path usrInputPath = userInput.getPath();
+//        String usrStringToSearchFor = userInput.getStringToLookFor();
 
 
         Path path = FileSystems.getDefault().getPath("TestFileTree");
         Path myPathOnPC = Paths.get("C:" + SEPARATOR + "Users" + SEPARATOR + "usr" + SEPARATOR + "Desktop" + SEPARATOR + "TestFileTree");
         String stringToSearchFor = "Lorem";
+
 
         FileTraverser fileTraverser = new FileTraverser(new FileInfoHolderList(), stringToSearchFor);
 
@@ -31,9 +38,7 @@ public class Main {
         }
 
         List<ObjectHolder> files = fileTraverser.listAllFilesWithMatches();
-        for (ObjectHolder objectHolder : files) {
-            System.out.println(objectHolder);
-        }
+        files.forEach(System.out::println);
 
     }//end of main method
 

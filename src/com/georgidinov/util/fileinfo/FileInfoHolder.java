@@ -1,4 +1,4 @@
-package com.georgidinov.util;
+package com.georgidinov.util.fileinfo;
 
 public class FileInfoHolder implements ObjectHolder {
 

@@ -1,4 +1,4 @@
-package com.georgidinov.util;
+package com.georgidinov.util.fileinfo;
 
 import java.util.ArrayList;
 import java.util.List;

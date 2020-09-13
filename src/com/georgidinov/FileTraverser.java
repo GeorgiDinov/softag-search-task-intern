@@ -2,9 +2,9 @@ package com.georgidinov;
 
 import com.georgidinov.readingstrategy.FileSearchingStrategy;
 import com.georgidinov.readingstrategy.FileSearchingStrategyFactory;
-import com.georgidinov.util.FileInfoHolder;
-import com.georgidinov.util.ObjectHolder;
-import com.georgidinov.util.ObjectHolderList;
+import com.georgidinov.util.fileinfo.FileInfoHolder;
+import com.georgidinov.util.fileinfo.ObjectHolder;
+import com.georgidinov.util.fileinfo.ObjectHolderList;
 
 import java.io.IOException;
 import java.nio.file.FileVisitResult;

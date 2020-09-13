@@ -23,6 +23,8 @@ public class ZipFileSearchingStrategy implements FileSearchingStrategy {
                 System.out.println("File name in zip file = " + fileName + " size = " + fileSize);
                 FileSearchingStrategy reader = FileSearchingStrategyFactory.getFileSearchingStrategy(fileName);
                 if (reader != null) {
+                    //todo extract object holders for the matching files and their sizes and pass them
+                    // to FileTraverser
                     reader.readFile(path, stringToLookFor);
                 } else {
                     System.out.println("File format NOT Supported!");
