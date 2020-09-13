@@ -30,4 +30,8 @@ public class UserInputReader {
         }
     }//end of method getUserInput
 
+    private String readLine() {
+        return scanner.nextLine();
+    }
+
 }//end of class UserInputReader
