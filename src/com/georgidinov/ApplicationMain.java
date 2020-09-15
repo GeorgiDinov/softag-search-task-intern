@@ -2,42 +2,33 @@ package com.georgidinov;
 
 import com.georgidinov.util.fileinfo.FileInfoHolderList;
 import com.georgidinov.util.fileinfo.ObjectHolder;
+import com.georgidinov.util.userinput.UserInput;
+import com.georgidinov.util.userinput.UserInputReader;
 
-import java.io.File;
 import java.io.IOException;
-import java.nio.file.FileSystems;
 import java.nio.file.Files;
 import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.util.List;
 
 public class ApplicationMain {
 
 
-    //private static final String SEPARATOR = File.separator;
-    //private static UserInputReader userInputReader = new UserInputReader();
-
+    //== public methods ==
     public static void main(String[] args) {
 
-        for (int i = 0; i < args.length; i++) {
-            System.out.println("Argument " + i + ": " + args[i]);
+        UserInput userInput = getCommandLineInput(args);
+        if (userInput == null) {
+            userInput = new UserInputReader().getUserInput();
         }
-
-//        UserInput userInput = userInputReader.getUserInput();
-//        Path usrInputPath = userInput.getPath();
-//        String usrStringToSearchFor = userInput.getStringToLookFor();
-
-        String SEPARATOR = File.separator;
-        Path path = FileSystems.getDefault().getPath("TestFileTree");
-        Path myPathOnPC = Paths.get("C:" + SEPARATOR + "Users" + SEPARATOR + "usr" + SEPARATOR + "Desktop" + SEPARATOR + "TestFileTree");
-        String stringToSearchFor = "Lorem";
+        Path usrInputPath = userInput.getPath();
+        String usrStringToSearchFor = userInput.getStringToLookFor();
 
 
-        FileTraverser fileTraverser = new FileTraverser(new FileInfoHolderList(), stringToSearchFor);
+        FileTraverser fileTraverser = new FileTraverser(new FileInfoHolderList(), usrStringToSearchFor);
 
-        if (Files.exists(myPathOnPC)) {
+        if (Files.exists(usrInputPath)) {
             try {
-                Files.walkFileTree(myPathOnPC, fileTraverser);
+                Files.walkFileTree(usrInputPath, fileTraverser);
             } catch (IOException e) {
                 System.out.println("Walk the file tree exception: " + e.getMessage());
             }
@@ -49,5 +40,14 @@ public class ApplicationMain {
         files.forEach(System.out::println);
 
     }//end of main method
+
+
+    //== private methods ==
+    private static UserInput getCommandLineInput(String[] args) {
+        if (args != null && args.length >= 2) {
+            return new UserInput(args[0], args[1]);
+        }
+        return null;
+    }
 
 }//end of class ApplicationMain
