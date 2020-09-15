@@ -2,7 +2,6 @@ package com.georgidinov;
 
 import com.georgidinov.util.fileinfo.FileInfoHolderList;
 import com.georgidinov.util.fileinfo.ObjectHolder;
-import com.georgidinov.util.userinput.UserInputReader;
 
 import java.io.File;
 import java.io.IOException;
@@ -12,18 +11,23 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.List;
 
-public class Main {
+public class ApplicationMain {
 
-    private static final String SEPARATOR = File.separator;
-    private static UserInputReader userInputReader = new UserInputReader();
+
+    //private static final String SEPARATOR = File.separator;
+    //private static UserInputReader userInputReader = new UserInputReader();
 
     public static void main(String[] args) {
+
+        for (int i = 0; i < args.length; i++) {
+            System.out.println("Argument " + i + ": " + args[i]);
+        }
 
 //        UserInput userInput = userInputReader.getUserInput();
 //        Path usrInputPath = userInput.getPath();
 //        String usrStringToSearchFor = userInput.getStringToLookFor();
 
-
+        String SEPARATOR = File.separator;
         Path path = FileSystems.getDefault().getPath("TestFileTree");
         Path myPathOnPC = Paths.get("C:" + SEPARATOR + "Users" + SEPARATOR + "usr" + SEPARATOR + "Desktop" + SEPARATOR + "TestFileTree");
         String stringToSearchFor = "Lorem";
@@ -46,4 +50,4 @@ public class Main {
 
     }//end of main method
 
-}//end of class Main
+}//end of class ApplicationMain

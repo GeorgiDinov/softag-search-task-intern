@@ -43,9 +43,9 @@ public class FileTraverser extends SimpleFileVisitor<Path> {
         String fileName = file.getFileName().toString();
         long fileSize = attrs.size();
 
-        FileSearchingStrategy reader = FileSearchingStrategyFactory.getFileSearchingStrategy(fileName);
-        if (reader != null) {
-            if (reader.readFile(file, this.stringToSearchFor)) {
+        FileSearchingStrategy readingStrategy = FileSearchingStrategyFactory.getFileSearchingStrategy(fileName);
+        if (readingStrategy != null) {
+            if (readingStrategy.readFile(file, this.stringToSearchFor)) {
                 this.objectHolderList.addNewObjectHolder(new FileInfoHolder(fileName, fileSize));
             }
         } else {

@@ -11,6 +11,7 @@ import java.nio.file.Path;
 
 public class DocxFileSearchingStrategy implements FileSearchingStrategy {
 
+    //== public methods ==
     @Override
     public boolean readFile(Path path, String stringToLookFor) {
         try (InputStream inputStream = new BufferedInputStream(Files.newInputStream(path))) {

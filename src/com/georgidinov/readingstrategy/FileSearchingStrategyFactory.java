@@ -2,6 +2,7 @@ package com.georgidinov.readingstrategy;
 
 public class FileSearchingStrategyFactory {
 
+    //== public methods ==
     public static FileSearchingStrategy getFileSearchingStrategy(String fileName) {
         if (fileName == null) {
             return null;
@@ -18,6 +19,5 @@ public class FileSearchingStrategyFactory {
         }
         return null;
     }
-
 
 }//end of class FileSearchingStrategyFactory

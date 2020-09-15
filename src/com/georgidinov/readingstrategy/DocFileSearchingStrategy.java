@@ -11,7 +11,7 @@ import java.nio.file.Path;
 
 public class DocFileSearchingStrategy implements FileSearchingStrategy {
 
-
+    //== public methods ==
     @Override
     public boolean readFile(Path path, String stringToLookFor) {
         try (InputStream inputStream = new BufferedInputStream(Files.newInputStream(path))) {
@@ -25,4 +25,5 @@ public class DocFileSearchingStrategy implements FileSearchingStrategy {
             return false;
         }
     }
+
 }//end of class DocFileSearchingStrategy
