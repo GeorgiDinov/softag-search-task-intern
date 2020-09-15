@@ -1,6 +1,7 @@
 package com.georgidinov.readingstrategy;
 
 import org.apache.poi.hwpf.HWPFDocument;
+import org.apache.poi.hwpf.extractor.WordExtractor;
 
 import java.io.BufferedInputStream;
 import java.io.IOException;
@@ -15,8 +16,9 @@ public class DocFileSearchingStrategy implements FileSearchingStrategy {
     public boolean readFile(Path path, String stringToLookFor) {
         try (InputStream inputStream = new BufferedInputStream(Files.newInputStream(path))) {
             HWPFDocument document = new HWPFDocument(inputStream);
-            String text = document.getDocumentText();
-            System.out.println(text);
+            WordExtractor extractor = new WordExtractor(document);
+            String text = extractor.getText();
+            //System.out.println(text);
             return text.contains(stringToLookFor);
         } catch (IOException e) {
             System.out.println("Exception while reading from doc file: " + e.getMessage());

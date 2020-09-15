@@ -14,7 +14,7 @@ import java.util.List;
 
 public class Main {
 
-    private static String SEPARATOR = File.separator;
+    private static final String SEPARATOR = File.separator;
     private static UserInputReader userInputReader = new UserInputReader();
 
     public static void main(String[] args) {
@@ -31,10 +31,14 @@ public class Main {
 
         FileTraverser fileTraverser = new FileTraverser(new FileInfoHolderList(), stringToSearchFor);
 
-        try {
-            Files.walkFileTree(myPathOnPC, fileTraverser);
-        } catch (IOException e) {
-            System.out.println("Walk the file tree exception: " + e.getMessage());
+        if (Files.exists(myPathOnPC)) {
+            try {
+                Files.walkFileTree(myPathOnPC, fileTraverser);
+            } catch (IOException e) {
+                System.out.println("Walk the file tree exception: " + e.getMessage());
+            }
+        } else {
+            System.out.println("Path not found!");
         }
 
         List<ObjectHolder> files = fileTraverser.listAllFilesWithMatches();
