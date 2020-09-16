@@ -3,11 +3,11 @@ package com.georgidinov;
 import com.georgidinov.util.fileinfo.FileInfoHolderList;
 import com.georgidinov.util.fileinfo.ObjectHolder;
 import com.georgidinov.util.userinput.UserInput;
-import com.georgidinov.util.userinput.UserInputReader;
+import com.georgidinov.util.userinput.UserInputImpl;
+import com.georgidinov.util.userinput.UserInputReaderImpl;
 
 import java.io.IOException;
 import java.nio.file.Files;
-import java.nio.file.Path;
 import java.util.List;
 
 public class ApplicationMain {
@@ -18,17 +18,15 @@ public class ApplicationMain {
 
         UserInput userInput = getCommandLineInput(args);
         if (userInput == null) {
-            userInput = new UserInputReader().getUserInput();
+            userInput = new UserInputReaderImpl().getUserInput();
         }
-        Path usrInputPath = userInput.getPath();
-        String usrStringToSearchFor = userInput.getStringToLookFor();
 
 
-        FileTraverser fileTraverser = new FileTraverser(new FileInfoHolderList(), usrStringToSearchFor);
+        FileTraverser fileTraverser = new FileTraverser(new FileInfoHolderList(), userInput);
 
-        if (Files.exists(usrInputPath)) {
+        if (Files.exists(userInput.getPath())) {
             try {
-                Files.walkFileTree(usrInputPath, fileTraverser);
+                Files.walkFileTree(userInput.getPath(), fileTraverser);
             } catch (IOException e) {
                 System.out.println("Walk the file tree exception: " + e.getMessage());
             }
@@ -45,7 +43,7 @@ public class ApplicationMain {
     //== private methods ==
     private static UserInput getCommandLineInput(String[] args) {
         if (args != null && args.length >= 2) {
-            return new UserInput(args[0], args[1]);
+            return new UserInputImpl(args[0], args[1]);
         }
         return null;
     }

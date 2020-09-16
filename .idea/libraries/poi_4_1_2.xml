@@ -1,18 +1,12 @@
 <component name="libraryTable">
-  <library name="commons-collections4-4.4">
+  <library name="poi-4.1.2">
     <CLASSES>
-      <root url="jar://$PROJECT_DIR$/ApachePOI/commons-collections4-4.4.jar!/" />
-      <root url="jar://$PROJECT_DIR$/ApachePOI/commons-compress-1.19.jar!/" />
-      <root url="jar://$PROJECT_DIR$/ApachePOI/commons-math3-3.6.1.jar!/" />
-      <root url="jar://$PROJECT_DIR$/ApachePOI/curvesapi-1.06.jar!/" />
-      <root url="jar://$PROJECT_DIR$/ApachePOI/dom4j-1.6.jar!/" />
       <root url="jar://$PROJECT_DIR$/ApachePOI/poi-4.1.2.jar!/" />
       <root url="jar://$PROJECT_DIR$/ApachePOI/poi-examples-4.1.2.jar!/" />
       <root url="jar://$PROJECT_DIR$/ApachePOI/poi-excelant-4.1.2.jar!/" />
       <root url="jar://$PROJECT_DIR$/ApachePOI/poi-ooxml-4.1.2.jar!/" />
       <root url="jar://$PROJECT_DIR$/ApachePOI/poi-ooxml-schemas-4.1.2.jar!/" />
       <root url="jar://$PROJECT_DIR$/ApachePOI/poi-scratchpad-4.1.2.jar!/" />
-      <root url="jar://$PROJECT_DIR$/ApachePOI/xmlbeans-3.1.0.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />
