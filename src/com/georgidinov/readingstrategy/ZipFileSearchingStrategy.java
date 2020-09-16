@@ -1,6 +1,6 @@
 package com.georgidinov.readingstrategy;
 
-import com.georgidinov.util.DeleteFile;
+import com.georgidinov.util.FileManipulator;
 import com.georgidinov.util.fileinfo.FileInfoHolder;
 import com.georgidinov.util.fileinfo.ObjectHolder;
 import com.georgidinov.util.fileinfo.ObjectHolderList;
@@ -26,23 +26,23 @@ public class ZipFileSearchingStrategy implements FileSearchingStrategy {
     private static final String IN_ZIP = "InZip/";
     private static final String TEMP_FOLDER = "Temp" + File.separator;
 
+
     //== public methods ==
     @Override
     public void readFile(UserInput userInput, ObjectHolderList objectHolderList, ObjectHolder objectHolder) {
 
         String searchFor = userInput.getStringToSearchFor();
-        Path tempPath = this.unzip(userInput);
+        Path tempFilePath = this.unzip(userInput);
 
-        if (Files.exists(tempPath)) {
+        if (Files.exists(tempFilePath)) {
             try {
-                Files.walkFileTree(tempPath, new SimpleFileVisitor<>() {
+                Files.walkFileTree(tempFilePath, new SimpleFileVisitor<>() {
                     @Override
                     public FileVisitResult visitFile(Path file, BasicFileAttributes attrs) throws IOException {
                         String fileName = file.getFileName().toString();
                         long fileSize = attrs.size();
                         ObjectHolder holder = new FileInfoHolder(IN_ZIP + fileName, fileSize);
                         FileSearchingStrategy strategy = FileSearchingStrategyFactory.getFileSearchingStrategy(fileName);
-
                         if (strategy != null) {
                             strategy.readFile(new UserInputImpl(file.toString(), searchFor), objectHolderList, holder);
                         }
@@ -54,24 +54,26 @@ public class ZipFileSearchingStrategy implements FileSearchingStrategy {
                 System.out.println("Exception while reading the extracted content: " + e.getMessage());
             }
         }
-        DeleteFile.deleteTempFile(tempPath);
-    }
+        FileManipulator.deleteFile(tempFilePath);
+    }//end of method readFile
+
 
     //== private methods ==
     private Path unzip(UserInput userInput) {
 
-        Path outputPath = FileSystems.getDefault().getPath(TEMP_FOLDER);
-        DeleteFile.deleteTempFile(outputPath);
+
+        Path tempFilePath = FileSystems.getDefault().getPath(TEMP_FOLDER);
+        //FileManipulator.deleteFile(tempFilePath);
 
         try (ZipFile zipFile = new ZipFile(userInput.getPathString())) {
             Enumeration<? extends ZipEntry> zipEntries = zipFile.entries();
             zipEntries.asIterator().forEachRemaining(entry -> {
                 try {
                     if (entry.isDirectory()) {
-                        Path dirToCreate = outputPath.resolve(entry.getName());
+                        Path dirToCreate = tempFilePath.resolve(entry.getName());
                         Files.createDirectories(dirToCreate);
                     } else {
-                        Path fileToCreate = outputPath.resolve(entry.getName());
+                        Path fileToCreate = tempFilePath.resolve(entry.getName());
                         Files.copy(zipFile.getInputStream(entry), fileToCreate);
                     }
                 } catch (IOException e) {
@@ -81,7 +83,7 @@ public class ZipFileSearchingStrategy implements FileSearchingStrategy {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        return outputPath;
+        return tempFilePath;
     }
 
 }//end of class ZipFileSearchingStrategy

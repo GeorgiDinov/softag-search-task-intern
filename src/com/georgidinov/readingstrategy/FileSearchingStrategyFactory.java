@@ -4,15 +4,18 @@ public class FileSearchingStrategyFactory {
 
     //== public methods ==
     public static FileSearchingStrategy getFileSearchingStrategy(String fileName) {
+
         if (fileName == null) {
             return null;
         } else if (fileName.endsWith(".txt") || fileName.endsWith(".pdf") || fileName.endsWith(".html")) {
             return new TextFileSearchingStrategy();
+        } else if (fileName.endsWith(".class")) {
+            return new ClassFileSearchingStrategy();
         } else if (fileName.endsWith(".docx")) {
             return new DocxFileSearchingStrategy();
         } else if (fileName.endsWith(".doc")) {
             return new DocFileSearchingStrategy();
-        } else if (fileName.endsWith(".dat") || fileName.endsWith(".class")) {
+        } else if (fileName.endsWith(".dat")) {
             return new BinaryFileSearchingStrategy();
         } else if (fileName.endsWith(".zip") || fileName.endsWith(".jar")) {
             return new ZipFileSearchingStrategy();

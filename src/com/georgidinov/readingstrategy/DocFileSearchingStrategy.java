@@ -20,7 +20,6 @@ public class DocFileSearchingStrategy implements FileSearchingStrategy {
             HWPFDocument document = new HWPFDocument(inputStream);
             WordExtractor extractor = new WordExtractor(document);
             String text = extractor.getText();
-            //System.out.println(text);
             if (text.contains(userInput.getStringToSearchFor())) {
                 objectHolderList.addNewObjectHolder(objectHolder);
             }

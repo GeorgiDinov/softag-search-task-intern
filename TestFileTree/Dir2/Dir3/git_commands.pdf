@@ -1,0 +1,126 @@
+$ git init   		// initialize the local Git repository
+$ git add <file>  	// add files to index (staging)
+$ git status		//check status of working tree
+$ git commit		//commit changes in index(the staging area)
+
+
+$git push		//push to remote repository
+$git pull		//pull latest changes from remote repositoty
+$git clone		//copy remote repository to your computer
+
+
+$ git add .		// adds all files to the stage
+$ git add *.html	// adds all files with .html extension
+
+
+$ git rm --cached 'filename' //removes the file from stage
+
+
+
+$ git commit		// you enter in submenu and if you want to type you have to enter 'i' (i only stands for insert)
+			// to describe the commit, then pres Esc, and then press ':wq' to see the commit
+
+$ git commit -m 'place description here' // skips the editing step in the above command
+
+
+clear			//clears the text from the console 
+
+If you don't want something included in staging and afterwards in commit make a file '.gitignore' or 'gitignore'
+type all the files or direcories you don't want to be included in that file
+
+
+BRANCHES
+$ git branch login	//creates a branch with the name 'login'
+$ git checkout login    //change branch to branch with name 'login'
+                        	When you are in this branch(this is a copy of the existing project) 
+				you can add files, or modifyexisting files separately. 
+				Again using add command to add to the stage before commit and then commit
+				but the commit will be for the specific branch
+
+$ git checkout master	// returns us to the master branch, or where the main
+                        	(eventualy the working system) is.
+				
+MERGE BRANCHES
+	We have to be in the master branch
+$ git merge login	//'login' represents the name of the branch we want to merge 
+				It will open the vim edditor an will ask for a commit message
+				e.g. added new functionality(log in to our system)
+				press 'i' to insert the message, press Esc followed by ':wq' .
+
+
+Remote repositories
+	1.Go to your gitHub account 
+
+	2.Create new repository(add description etc.)
+
+	3.Follow the command instructions(add README.md file in your file direcotry)
+         	$ git remote	//lists remote repositories we have
+
+	4.Get line with the command with the URL
+		$ git remote add origin https://github.com/....
+		$ git remote  // after the previous command you will now see 'origin'
+
+	5.The last line of the instructions is to push your local git repository to gitHub 
+		$ git push -u origin master
+	
+	6.You will see a pop up window to insert your github username and password
+		and afterwards the push should be completed.
+
+
+Dowloading and copying repositories
+
+	1.Get the Url from the clone/download bar to the right of the repository(green button)
+
+	2.Create a folder where you want to download the repository
+
+	3.Right click and open new git bash on that foloder and type the command followed
+		by the link from github from the clone button. You can clone every public project.
+		$ git clone https://github.com/GeorgiDinov/myappsample.git
+  
+
+If you want to see if they are updates on your project from master branch(probably any branch)
+
+$ git pull
+
+
+	Loggs
+$ git log	        // lists all the commits with id, author, date and description(NOTE press 'q' to exit log)
+
+$ git log --oneline     // lists all comits with id and desctiption
+
+$ git log --stat	// lists like '$ git log' and adds additional info with all the files 
+				involved(changed) in the commit. (+) and (-) after the files
+				indicate additions or subtractions to those files.
+
+$ git log --patch	//this lists the differences between files per commit
+
+$ git log --patch --oneline	// combines both log ouputs
+
+$ git log --graph --all --decorate --oneline // visualize graph like structure of the commits from bottom up
+						to the las commit(if there is branches it visualize them as a node graph)
+
+
+
+
+https://github.com/JetBrains/swot/blob/master/lib/domains/bg/uni-plovdiv.txt
+
+
+
+Lorem ipsum
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,14 @@
+java -cp D:\Programming\JAVA\JAVA_Projects\JAVA_Casual_Projects\softag-search-task-intern\out\production\softag-
+search-task-intern;D:\Programming\JAVA\JAVA_Projects\JAVA_Casual_Projects\softag-search-task-intern\ApachePOI\lib\activation-1.1.1.jar;D:\Programming\JAVA\JAVA_Projects\JAVA_Casual_Projects\sof
+tag-search-task-intern\ApachePOI\lib\commons-codec-1.13.jar;D:\Programming\JAVA\JAVA_Projects\JAVA_Casual_Projects\softag-search-task-intern\ApachePOI\lib\commons-collections4-4.4.jar;D:\Progra
+mming\JAVA\JAVA_Projects\JAVA_Casual_Projects\softag-search-task-intern\ApachePOI\lib\commons-compress-1.19.jar;D:\Programming\JAVA\JAVA_Projects\JAVA_Casual_Projects\softag-search-task-intern\
+ApachePOI\lib\commons-logging-1.2.jar;D:\Programming\JAVA\JAVA_Projects\JAVA_Casual_Projects\softag-search-task-intern\ApachePOI\lib\commons-math3-3.6.1.jar;D:\Programming\JAVA\JAVA_Projects\JA
+VA_Casual_Projects\softag-search-task-intern\ApachePOI\lib\jaxb-api-2.3.1.jar;D:\Programming\JAVA\JAVA_Projects\JAVA_Casual_Projects\softag-search-task-intern\ApachePOI\lib\jaxb-core-2.3.0.1.ja
+r;D:\Programming\JAVA\JAVA_Projects\JAVA_Casual_Projects\softag-search-task-intern\ApachePOI\lib\jaxb-impl-2.3.2.jar;D:\Programming\JAVA\JAVA_Projects\JAVA_Casual_Projects\softag-search-task-in
+tern\ApachePOI\lib\junit-4.12.jar;D:\Programming\JAVA\JAVA_Projects\JAVA_Casual_Projects\softag-search-task-intern\ApachePOI\lib\log4j-1.2.17.jar;D:\Programming\JAVA\JAVA_Projects\JAVA_Casual_P
+rojects\softag-search-task-intern\ApachePOI\lib\SparseBitSet-1.2.jar;D:\Programming\JAVA\JAVA_Projects\JAVA_Casual_Projects\softag-search-task-intern\ApachePOI\ooxml-lib\curvesapi-1.06.jar;D:\P
+rogramming\JAVA\JAVA_Projects\JAVA_Casual_Projects\softag-search-task-intern\ApachePOI\ooxml-lib\xmlbeans-3.1.0.jar;D:\Programming\JAVA\JAVA_Projects\JAVA_Casual_Projects\softag-search-task-int
+ern\ApachePOI\poi-4.1.2.jar;D:\Programming\JAVA\JAVA_Projects\JAVA_Casual_Projects\softag-search-task-intern\ApachePOI\poi-examples-4.1.2.jar;D:\Programming\JAVA\JAVA_Projects\JAVA_Casual_Proje
+cts\softag-search-task-intern\ApachePOI\poi-excelant-4.1.2.jar;D:\Programming\JAVA\JAVA_Projects\JAVA_Casual_Projects\softag-search-task-intern\ApachePOI\poi-ooxml-4.1.2.jar;D:\Programming\JAVA
+\JAVA_Projects\JAVA_Casual_Projects\softag-search-task-intern\ApachePOI\poi-ooxml-schemas-4.1.2.jar;D:\Programming\JAVA\JAVA_Projects\JAVA_Casual_Projects\softag-search-task-intern\ApachePOI\po
+i-scratchpad-4.1.2.jar;D:\Programming\JAVA\JAVA_Projects\JAVA_Casual_Projects\softag-search-task-intern\ApachePOI\dom4j-1.6.jar\dom4j-1.6.jar com.georgidinov.ApplicationMain

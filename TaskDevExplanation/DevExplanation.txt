@@ -1,0 +1,45 @@
+For the creation of the project I used Java Version 11(JDK - Amazon Corretto) and Intellij IDE Ultimate.
+
+I picked this task, because it seemed with real world application and I was interested to try it out.
+Definitely quite challenging and at this point I have more questions than answers.
+Overall despite my progress and the state of the project right now I am satisfied with the experience I had. 
+
+Briefly about my plan, and what it came to be. 
+I decided to use the Strategy Design Pattern such that to encapsulate the different approaches for reading files
+(text and binary, buffered or no) in separate classes. Everything was nice and smooth until a hit the brick to read word
+document, it took me two days to somehow find and use third party library called Apache POI, it is now included as external library in the project structure. That was only the warm up for my true nightmare - archive files(zips, jars etc.).
+I also implemented factory method to return different strategy based of the file type.
+
+Zip file reading problems
+I couldn't find a decent way to read the zipped files, so I ended up unzipping and copy the file, and then reading its content.
+I couldn't pass and collect parameters I needed freely.
+Based on this problem I refactored the strategy method(return type and signature) with a bit improvement but not much.
+I ended up with the idea to read the unzipped directory and delete it afterwards(as if temp dir/ file).
+
+Passing parameters to the main method problems
+Basically the problem was that I had to include all of the jar files from the external library in the classpath before
+the main method and the parameter list...
+something like  java -cp <external jar files separated with ';'>  <fully qualified class name> <parameter1 parameter2>
+I found that when I looked at first line in the run window of the IDE. 
+If I open terminal from the IDE and pass the command ,the program starts and executes, but I couldn't run the program from my PC powershell.
+I will include the string(with the command that starts from the IDE terminal) in separate text file.
+For testing purposes I implemented reading user input from the console if no parameters are passed to the main method.
+
+Tried to pass parameters easily, but was not easy. By that I mean that I encapsulated the user input and the possible output
+in objects( UserInput, ObjectHolder). Did my best to follow best practices(S.O.L.I.D.) as far as I am familiar with.
+
+There are number of bugs that I am not familiar how to fix, probably because it is for the first time that I am traversing file trees and working that much with file system(I am not complaining).
+String comparisons are not so efficient, I was planning to replace them with pattern matching, but did not implement it.
+I've tried to document the whole process with simulating task planning on github.
+Did not write any tests.
+
+There are directories included in the project:
+Apache POI - external library for reading .doc and .docx files(couldn't explore the library further)
+TaskDescription - holds the word document with the task description that was sent to me.
+TaskDevExplanation - txt file with my brief explanation and intentions, txt file with the cmd command that worked from my IDE terminal.
+TestFileTree - the file tree I used to test and experiment.
+
+
+Other than that I want to thank you for the opportunity and your time.
+
+

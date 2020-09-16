@@ -42,6 +42,8 @@ public class FileTraverser extends SimpleFileVisitor<Path> {
     @Override
     public FileVisitResult visitFile(Path file, BasicFileAttributes attrs) throws IOException {
 
+//        System.out.println("Path = " + file.resolve(userInput.getPath()));
+//        System.out.println("not resolved = " + file.toString());
         String fileName = file.getFileName().toString();
         long fileSize = attrs.size();
         ObjectHolder objectHolder = new FileInfoHolder(fileName, fileSize);

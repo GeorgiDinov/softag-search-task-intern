@@ -31,7 +31,6 @@ public class BinaryFileSearchingStrategy implements FileSearchingStrategy {
         } catch (IOException e) {
             System.out.println("Exception while reading binary file: " + e.getMessage());
         }
-
-    }//end of class readFile
+    }
 
 }//end of class BinaryFileSearchingStrategy

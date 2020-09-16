@@ -21,7 +21,6 @@ public class DocxFileSearchingStrategy implements FileSearchingStrategy {
             XWPFDocument document = new XWPFDocument(inputStream);
             XWPFWordExtractor extractor = new XWPFWordExtractor(document);
             String text = extractor.getText();
-            //System.out.println(text);
             if (text.contains(userInput.getStringToSearchFor())) {
                 objectHolderList.addNewObjectHolder(objectHolder);
             }

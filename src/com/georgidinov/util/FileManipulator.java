@@ -7,13 +7,16 @@ import java.nio.file.Path;
 import java.nio.file.SimpleFileVisitor;
 import java.nio.file.attribute.BasicFileAttributes;
 
-public final class DeleteFile {
+//my be extended to do all four basic CRUD operations
+public final class FileManipulator {
 
     //== constructors ==
-    private DeleteFile() {
+    private FileManipulator() {
     }//end of constructor
 
-    public static void deleteTempFile(Path path) {
+
+    //== public methods ==
+    public static void deleteFile(Path path) {
         if (Files.exists(path)) {
             try {
                 Files.walkFileTree(path, new SimpleFileVisitor<>() {
